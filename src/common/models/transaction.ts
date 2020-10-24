@@ -1,4 +1,5 @@
 import { CreditDebitIndicator } from './creditDebitIndicator';
+import { Merchant } from './merchant';
 
 export interface Transaction {
   amountCurrency: {
@@ -7,5 +8,6 @@ export interface Transaction {
   };
   type: string;
   creditDebitIndicator: CreditDebitIndicator;
+  merchant: Merchant;
 }
 

@@ -5,5 +5,4 @@ export interface TransactionHistory {
   categoryCode: string;
   dates: { valueDate: number | string };
   transaction: Transaction;
-  merchant: Merchant;
 }

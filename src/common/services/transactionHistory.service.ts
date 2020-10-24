@@ -2,13 +2,35 @@ import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs';
 
 import { data } from '../../data/transactions.json';
-import { TransactionHistory } from '../models';
+
+import getRandomCategoryCode from '../helpers/getRandomCategoryCode';
+import { TransactionHistory, Transaction } from '../models';
 
 @Injectable({ providedIn: 'root' })
 export class TransactionHistoryService {
-  private transactionHistory: BehaviorSubject<Array<TransactionHistory>> = new BehaviorSubject(data as Array<TransactionHistory>);
+  private transactionHistory: BehaviorSubject<Array<TransactionHistory>> = new BehaviorSubject(
+    data.map(({ merchant, transaction, ...rest }) => ({
+      transaction: { ...transaction, merchant },
+      ...rest
+    })) as Array<TransactionHistory>
+  );
+
+  createTransactionHistory(transaction: Transaction): void {
+    this.transactionHistory.next([
+      this.mapTransactionToTransactionHistory(transaction),
+      ...this.transactionHistory.getValue()
+    ]);
+  }
 
   getHistory(): Observable<Array<TransactionHistory>> {
     return this.transactionHistory.asObservable();
+  }
+
+  private mapTransactionToTransactionHistory(transaction: Transaction): TransactionHistory {
+    return {
+      categoryCode: getRandomCategoryCode(),
+      dates: { valueDate: Date.now() },
+      transaction
+    };
   }
 }
