@@ -1,0 +1,9 @@
+<div>
+  <div>{{record.date | date: 'MM dd'}}</div>
+  <div>{{record.logoUrl}}</div>
+  <div>
+    {{record.beneficiary}}
+    {{record.transactionType}}
+  </div>
+  <div>{{record.amount | currency:'USD':'symbol':'1.2-2' }}</div>
+</div>
