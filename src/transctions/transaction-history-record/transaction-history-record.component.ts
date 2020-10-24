@@ -1,8 +1,9 @@
-import { Component, Input } from '@angular/core';
+import { Component, ViewEncapsulation, Input } from '@angular/core';
 
 import { TransactionHistoryRecord } from './transactionHistoryRecord';
 
 @Component({
+  encapsulation: ViewEncapsulation.None,
   selector: 'app-transaction-history-record',
   styleUrls: ['./transaction-history-record.component.scss'],
   templateUrl: './transaction-history-record.component.html'

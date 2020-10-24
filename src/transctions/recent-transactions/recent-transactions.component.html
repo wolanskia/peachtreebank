@@ -1,9 +1,25 @@
 <app-panel>
-  <div panelHeader>
-    <img icon="briefcase" src="../../assets/icons/briefcase.png" alt="Briefcase Icon" />
+  <div panelHeader class="flex flex-center-vh">
+    <img class="flex-align-left" icon="briefcase" src="../../assets/icons/briefcase.png" alt="Briefcase Icon" />
+    <span>Recent Transactions</span>
   </div>
-  <div panelContent>
-    <input [formControl]="search" type="text" />
+  <div panelContent class="stack">
+    <div class="with-sidebar-right">
+      <div>
+        <label aria-label="Search">
+          <input
+            [formControl]="search"
+            placeholder="Search by typing..."
+            type="text" />
+        </label>
+      <div class="filter-settings">
+        <label>Sort by</label>
+        <button class="filter-button">DATE</button>
+        <button class="filter-button">BENIFICIARY</button>
+        <button class="filter-button">AMOUNT</button>
+      </div>
+    </div>
+  </div>
     <app-transaction-history-list [transactions]="recentTransactions$ | async"></app-transaction-history-list>
   </div>
 </app-panel>
