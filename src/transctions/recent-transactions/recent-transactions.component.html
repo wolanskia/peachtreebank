@@ -1,2 +1,9 @@
-<input [formControl]="search" type="text" />
-<app-transaction-history-list [transactions]="recentTransactions$ | async"></app-transaction-history-list>
+<app-panel>
+  <div panelHeader>
+    <img icon="briefcase" src="../../assets/icons/briefcase.png" alt="Briefcase Icon" />
+  </div>
+  <div panelContent>
+    <input [formControl]="search" type="text" />
+    <app-transaction-history-list [transactions]="recentTransactions$ | async"></app-transaction-history-list>
+  </div>
+</app-panel>

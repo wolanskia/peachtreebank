@@ -7,9 +7,10 @@ import { RecentTransactionsComponent } from './recent-transactions/recent-transa
 
 import { RecentTransactionsService } from './recent-transactions/recentTransactions.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CommonComponentModule } from 'src/common/common.module';
 
 @NgModule({
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, CommonComponentModule, ReactiveFormsModule],
   declarations: [
     RecentTransactionsComponent,
     TransactionHistoryListComponent,
