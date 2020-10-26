@@ -8,9 +8,14 @@ button {
   background-color: $orange;
   border-radius: 2px;
   color: white;
+  transition: 100ms ease-in;
 
   &[disabled] {
-    background-color: lighten($orange, 15%);
+    background-color: lighten($orange, 10%);
+  }
+
+  &:hover {
+    background-color: darken($orange, 10%);
   }
 }
 
