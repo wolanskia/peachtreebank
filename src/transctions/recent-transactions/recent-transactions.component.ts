@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { map, merge, tap, mergeMap } from 'rxjs/operators';
 
 import { RecentTransactionsService } from './recentTransactions.service';
 import { TransactionHistoryRecord } from '../transaction-history-record/transactionHistoryRecord';
@@ -12,19 +10,15 @@ import { TransactionHistoryRecord } from '../transaction-history-record/transact
   templateUrl: './recent-transactions.component.html'
 })
 export class RecentTransactionsComponent {
-  public search: FormControl = new FormControl('');
-  public recentTransactions$: Observable<Array<TransactionHistoryRecord>> = this.recentTransactionsService
-    .getRecentTransactions().pipe(
-      tap(console.log),
-    );
+  public recentTransactions$: Observable<Array<TransactionHistoryRecord>> = this.recentTransactionsService.recentTransactions$;
 
   constructor(private recentTransactionsService: RecentTransactionsService) { }
 
-  private filterRecentTransactions(keyword: Observable<string>): Observable<Array<TransactionHistoryRecord>> {
-    return keyword.pipe(
-      mergeMap((search) => this.recentTransactionsService.getRecentTransactions().pipe(
+  filterRecentTransactions(keyword: string): void {
+    this.recentTransactionsService.filter(keyword);
+  }
 
-      ))
-    );
+  sortRecentTransactions(field: string, direction: 'asc' | 'desc'): void {
+    this.recentTransactionsService.sort({ field, direction });
   }
 }

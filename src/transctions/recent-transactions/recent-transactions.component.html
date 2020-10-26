@@ -8,15 +8,15 @@
       <div>
         <label aria-label="Search">
           <input
-            [formControl]="search"
+            (input)="filterRecentTransactions($event.target.value)"
             placeholder="Search by typing..."
             type="text" />
         </label>
       <div class="filter-settings">
         <label>Sort by</label>
-        <button class="filter-button">DATE</button>
-        <button class="filter-button">BENIFICIARY</button>
-        <button class="filter-button">AMOUNT</button>
+        <button class="filter-button" (click)="sortRecentTransactions('date', 'asc')">DATE</button>
+        <button class="filter-button" (click)="sortRecentTransactions('beneficiary', 'asc')">BENIFICIARY</button>
+        <button class="filter-button" (click)="sortRecentTransactions('amount', 'asc')">AMOUNT</button>
       </div>
     </div>
   </div>
