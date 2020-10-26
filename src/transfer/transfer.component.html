@@ -1,0 +1,40 @@
+<app-panel>
+  <ng-container panelHeader>
+    <span>Make a Transfer</span>
+  </ng-container>
+  <ng-container panelContent>
+    <form [formGroup]="form" class="stack">
+      <label for="from">
+        FROM ACCOUNT
+        <input
+          type="text"
+          id="from"
+          name="from"
+          placeholder="Free Checking(4692) - $5824.76"
+          readonly
+        />
+      </label>
+      <label for="to">
+        TO ACCOUNT
+        <input
+          formControlName="to"
+          type="text"
+          id="to"
+          name="to"
+          placeholder="Georgia Power Electric Company"
+        />
+      </label>
+      <label for="amount">
+        AMOUNT
+        <input
+          formControlName="amount"
+          type="number"
+          id="amount"
+          name="amount"
+          placeholder="$ 0.00"
+        />
+      </label>
+      <button type="submit" [disabled]="form.invalid" (click)="createTransfer()">SUBMIT</button>
+    </form>
+  </ng-container>
+</app-panel>
