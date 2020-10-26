@@ -19,8 +19,8 @@ const sortByDateDesc = (a, b) => {
 };
 
 const sortByFloatAsc = (a, b) => {
-  const floatA = parseInt(a, 10);
-  const floatB = parseInt(b, 10);
+  const floatA = parseFloat(a);
+  const floatB = parseFloat(b);
 
   return floatA > floatB
     ? 1 : floatA < floatB
@@ -28,8 +28,8 @@ const sortByFloatAsc = (a, b) => {
 };
 
 const sortByFloatDesc = (a, b) => {
-  const floatA = parseInt(a, 10);
-  const floatB = parseInt(b, 10);
+  const floatA = parseFloat(a);
+  const floatB = parseFloat(b);
 
   return floatA > floatB
     ? -1 : floatA < floatB
