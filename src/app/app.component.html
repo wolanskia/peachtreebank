@@ -6,45 +6,49 @@
 <main>
   <div class="center">
     <div class="with-sidebar-left">
-      <div class="transfer-container">
-        <app-panel>
-          <ng-container panelHeader>
-            <img
-              icon="arrows"
-              src="..\assets\icons\arrows.png"
-              alt=":arrows:"
-            />
-            <span>Make a Transfer</span>
-          </ng-container>
-          <ng-container panelContent>
-            <div class="stack">
-              <label for="from-account">FROM ACCOUNT</label>
-              <input
-                type="text"
-                id="from-account"
-                name="from-account"
-                placeholder="Free Checking(4692) - $5824.76"
+      <div>
+        <div class="transfer-container">
+          <app-panel>
+            <ng-container panelHeader>
+              <img
+                icon="arrows"
+                src="..\assets\icons\arrows.png"
+                alt=":arrows:"
               />
-              <label for="to-account">TO ACCOUNT</label>
-              <input
-                type="text"
-                id="to-account"
-                name="to-account"
-                placeholder="Georgia Power Electric Company"
-              />
-              <label for="amount">AMOUNT</label>
-              <input
-                type="text"
-                id="amount"
-                name="amount"
-                placeholder="$ 0.00"
-              />
-              <button class="submit-button">SUBMIT</button>
-            </div>
-          </ng-container>
-        </app-panel>
+              <span>Make a Transfer</span>
+            </ng-container>
+            <ng-container panelContent>
+              <div class="stack">
+                <label for="from-account">FROM ACCOUNT</label>
+                <input
+                  type="text"
+                  id="from-account"
+                  name="from-account"
+                  placeholder="Free Checking(4692) - $5824.76"
+                  readonly
+                />
+                <label for="to-account">TO ACCOUNT</label>
+                <input
+                  type="text"
+                  id="to-account"
+                  name="to-account"
+                  placeholder="Georgia Power Electric Company"
+                />
+                <label for="amount">AMOUNT</label>
+                <input
+                  type="number"
+                  id="amount"
+                  name="amount"
+                  placeholder="$ 0.00"
+                />
+                <button class="submit-button">SUBMIT</button>
+              </div>
+            </ng-container>
+          </app-panel>
+        </div>
+        <app-recent-transactions></app-recent-transactions>
       </div>
-      <app-recent-transactions></app-recent-transactions>
+
     </div>
   </div>
 </main>
