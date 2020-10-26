@@ -11,6 +11,6 @@ header {
 main {
   background: url("../assets/background.jpg") no-repeat fixed 50%;
   background-size: cover;
-  height: calc(100% - 90px);
-  padding: 1rem 0;
+  min-height: calc(100% - 90px);
+  padding: 2rem 0;
 }
