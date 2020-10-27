@@ -12,10 +12,7 @@
             type="text" />
         </label>
       <div class="filter-settings">
-        <label>Sort by</label>
-        <button class="filter-button" (click)="sortRecentTransactions('date', 'asc')">DATE</button>
-        <button class="filter-button" (click)="sortRecentTransactions('beneficiary', 'asc')">BENIFICIARY</button>
-        <button class="filter-button" (click)="sortRecentTransactions('amount', 'asc')">AMOUNT</button>
+        <app-transaction-sort (sort)="sortRecentTransactions($event)"></app-transaction-sort>
       </div>
     </div>
   </div>

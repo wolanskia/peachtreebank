@@ -10,6 +10,15 @@ import { SortOrder } from 'src/common/models';
 export class TransactionSortComponent {
   @Output() sort: EventEmitter<SortOrder> = new EventEmitter<SortOrder>();
 
-  sortOrder = { field: 'date', direction: 'asc' };
+  sortOrder: SortOrder = { field: 'date', direction: 'asc' };
 
+  updateSort(field): void {
+    const direction: 'asc' | 'desc' = field === this.sortOrder.field ?
+      this.sortOrder.direction === 'asc' ?
+        'desc' : 'asc'
+      : this.sortOrder.direction;
+
+    this.sortOrder = { field, direction };
+    this.sort.emit({ field, direction });
+  }
 }

@@ -1,0 +1,33 @@
+button {
+  background-color: white;
+  border: 1px solid lightgray;
+  color: #333;
+  padding: 0.5rem 1rem;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.active {
+  &.asc {
+    &::after {
+      content: '\25B2';
+      color: gray;
+      display: inline-flex;
+      align-content: center;
+      transition: transform 100ms ease;
+    }
+  }
+
+  &.desc {
+    &::after {
+      content: '\25B2';
+      color: gray;
+      transform: rotate(180deg);
+      display: inline-flex;
+      align-content: center;
+      transition: transform 100ms ease;
+    }
+  }
+}

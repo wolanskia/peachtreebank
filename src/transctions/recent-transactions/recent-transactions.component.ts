@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 
 import { RecentTransactionsService } from './recentTransactions.service';
 import { TransactionHistoryRecord } from '../transaction-history-record/transactionHistoryRecord';
+import { SortOrder } from 'src/common/models';
 
 @Component({
   selector: 'app-recent-transactions',
@@ -18,7 +19,7 @@ export class RecentTransactionsComponent {
     this.recentTransactionsService.filter(keyword);
   }
 
-  sortRecentTransactions(field: string, direction: 'asc' | 'desc'): void {
+  sortRecentTransactions({ field, direction }: SortOrder): void {
     this.recentTransactionsService.sort({ field, direction });
   }
 }

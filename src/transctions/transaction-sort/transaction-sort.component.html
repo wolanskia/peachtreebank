@@ -1,0 +1,31 @@
+<label>Sort by</label>
+<button
+  [class.active]="sortOrder.field === 'date'"
+  [ngClass]="{
+    'asc': sortOrder.direction === 'asc',
+    'desc': sortOrder.direction === 'desc'
+  }"
+  class="filter-button"
+  (click)="updateSort('date', 'asc')">
+    DATE
+</button>
+<button
+  [class.active]="sortOrder.field === 'beneficiary'"
+  [ngClass]="{
+    'asc': sortOrder.direction === 'asc',
+    'desc': sortOrder.direction === 'desc'
+  }"
+  class="filter-button"
+  (click)="updateSort('beneficiary', 'asc')">
+  BENIFICIARY
+</button>
+<button
+  [class.active]="sortOrder.field === 'amount'"
+  [ngClass]="{
+    'asc': sortOrder.direction === 'asc',
+    'desc': sortOrder.direction === 'desc'
+  }"
+  class="filter-button"
+  (click)="updateSort('amount', 'asc')">
+  AMOUNT
+</button>
