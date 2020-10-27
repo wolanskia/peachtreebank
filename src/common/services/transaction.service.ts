@@ -17,7 +17,7 @@ export class TransactionService {
   createTransaction(transfer: Transfer): void {
     this.mapTransferToTransaction(transfer)
       .pipe(take(1))
-      .subscribe((transaction: Transaction) => this.transactionHistoryService.createTransactionHistory(transaction))
+      .subscribe((transaction: Transaction) => this.transactionHistoryService.createTransactionHistory(transaction));
   }
 
   private mapTransferToTransaction(transfer: Transfer): Observable<Transaction> {
