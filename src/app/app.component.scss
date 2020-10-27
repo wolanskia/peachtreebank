@@ -6,6 +6,15 @@ header {
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
   height: 90px;
   padding: 1rem;
+
+  @media(max-width: 500px) {
+    display: flex;
+    align-items: center;
+
+    img {
+      width: 100%;
+    }
+  }
 }
 
 main {
