@@ -6,8 +6,11 @@ button {
   background-color: white;
   border: 1px solid lightgray;
   color: #333;
-  font-size: 14px;
   padding: 0.5rem 1rem;
+
+  &:not(:last-of-type) {
+    border-right: 0;
+  }
 
   &:focus {
     outline: none;

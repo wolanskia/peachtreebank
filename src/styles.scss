@@ -5,7 +5,7 @@
 * {
   box-sizing: border-box;
   font-family: 'Kanit-Regular', sans-serif;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 body {
@@ -45,6 +45,8 @@ strong {
   font-family: 'Kanit-Bold', sans-serif;
 }
 
-::placeholder {
+::placeholder,
+li,
+span {
   font-family: 'Kanit-Light', sans-serif;
 }
