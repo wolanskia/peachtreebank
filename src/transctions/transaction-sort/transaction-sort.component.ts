@@ -10,7 +10,7 @@ import { SortOrder } from '../../shared/models';
 export class TransactionSortComponent {
   @Output() sort: EventEmitter<SortOrder> = new EventEmitter<SortOrder>();
 
-  sortOrder: SortOrder = { field: 'date', direction: 'asc' };
+  sortOrder: SortOrder = { field: 'date', direction: 'desc' };
 
   updateSort(field: string): void {
     const direction: 'asc' | 'desc' = field === this.sortOrder.field ?

@@ -2,39 +2,57 @@
   <div panelHeader class="flex flex-center-vh">
     <span>Make a Transfer</span>
   </div>
-  <ng-container panelContent>
-    <form [formGroup]="form" class="stack">
-      <label for="from">
-        FROM ACCOUNT
-        <input
-          type="text"
-          id="from"
-          name="fromAccount"
-          placeholder="Free Checking(4692) - ${{accountBalance}}"
-          readonly
-        />
-      </label>
-      <label for="to">
-        TO ACCOUNT
-        <input
-          formControlName="toAccount"
-          type="text"
-          id="to"
-          name="toAccount"
-          placeholder="Georgia Power Electric Company"
-        />
-      </label>
-      <label for="amount">
-        AMOUNT
-        <input
-          formControlName="amount"
-          type="number"
-          id="amount"
-          name="amount"
-          placeholder="$ 0.00"
-        />
-      </label>
-      <button type="submit" [disabled]="form.invalid" (click)="createTransfer(form.getRawValue())">SUBMIT</button>
-    </form>
-  </ng-container>
+    <app-confirm panelContent #confirmComponent>
+      <form *preConfirm [formGroup]="form" class="stack">
+        <label for="from">
+          FROM ACCOUNT
+          <input
+            type="text"
+            id="from"
+            name="fromAccount"
+            placeholder="Free Checking(4692): {{accountBalance | currency:'USD':'symbol':'1.2-2'}}"
+            readonly
+          />
+        </label>
+        <label for="to">
+          TO ACCOUNT
+          <input
+            formControlName="toAccount"
+            type="text"
+            id="to"
+            name="toAccount"
+            placeholder="Georgia Power Electric Company"
+          />
+        </label>
+        <label for="amount">
+          AMOUNT
+          <input
+            formControlName="amount"
+            type="number"
+            id="amount"
+            name="amount"
+            placeholder="$ 0.00"
+          />
+        </label>
+        <button type="submit" [disabled]="form.invalid" (click)="confirmTransfer()">SUBMIT</button>
+      </form>
+    <div class="stack confirm-transfer" *confirmStep>
+      <p class="center">Preview Transfer</p>
+      <ul>
+        <li class="flex flex-column">
+          <strong>From</strong>
+          <span> Free Checking(4692): {{accountBalance | currency:'USD':'symbol':'1.2-2' }}</span>
+        </li>
+        <li class="flex flex-column">
+          <strong>To</strong>
+          <span>{{form.value.toAccount}}</span>
+        </li>
+        <li class="flex flex-column">
+          <strong>Amount</strong>
+          <span>{{form.value.amount | currency:'USD':'symbol':'1.2-2'}}</span>
+        </li>
+      </ul>
+      <button (click)="createTransfer(form.getRawValue())">Make Transfer</button>
+    </div>
+  </app-confirm>
 </app-panel>

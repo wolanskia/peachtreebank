@@ -23,3 +23,13 @@ label {
   display: flex;
   flex-direction: column;
 }
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+.confirm-transfer {
+  background-color: white;
+  height: inherit;
+  width: 100%;
+}
