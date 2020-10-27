@@ -8,7 +8,7 @@ ul {
 }
 
 li {
-  padding: 1rem;
+  padding: 0.5rem;
 
   &:not(:last-of-type) {
     border-bottom: 1px solid gray;
@@ -17,5 +17,6 @@ li {
   > * {
     display: flex;
     justify-content: space-between;
+    align-items: center;
   }
 }

@@ -1,0 +1,21 @@
+.date {
+  flex: 0 0 15%;
+}
+
+.logo {
+  flex: 0 0 15%;
+
+  & > img {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+.beneficiary {
+  flex: 1 0 auto;
+}
+
+.amount {
+  flex: 0 0 15%;
+  text-align: right;
+}

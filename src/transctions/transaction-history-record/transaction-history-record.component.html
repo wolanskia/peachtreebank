@@ -1,7 +1,9 @@
-<div>{{record.date | date: 'MMM dd'}}</div>
-<div>{{record.logoUrl}}</div>
-<div>
-  {{record.beneficiary}}
-  {{record.transactionType}}
+<div class="date">{{record.date | date: 'MMM dd'}}</div>
+<div class="logo">
+  <img src="../../assets/icons/{{record.logoUrl}}" alt="{{record.beneficiary}}" />
 </div>
-<div>{{record.amount | currency:'USD':'symbol':'1.2-2' }}</div>
+<div class="flex flex-column beneficiary">
+  <strong>{{record.beneficiary}}</strong>
+  <span>{{record.transactionType}}</span>
+</div>
+<div class="amount">{{record.amount | currency:'USD':'symbol':'1.2-2' }}</div>
