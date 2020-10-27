@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-
-import { TransactionHistoryService } from '../../common/services';
 import { Observable, BehaviorSubject, combineLatest } from 'rxjs';
 import { map } from 'rxjs/operators';
 
+import { TransactionHistoryService } from '../../shared/services';
+import { TransactionHistory, SortOrder } from '../../shared/models';
+import { sortByDateField, sortByField, sortByFloatField } from '../../shared/helpers/sortRecords';
+
 import { TransactionHistoryRecord } from '../transaction-history-record/transactionHistoryRecord';
-import { TransactionHistory, SortOrder } from 'src/common/models';
-import { sortByDateField, sortByField, sortByFloatField } from 'src/common/helpers/sortRecords';
 
 @Injectable()
 export class RecentTransactionsService {

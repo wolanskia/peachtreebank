@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { transferForm } from './transfer.form';
-import { TransactionService } from 'src/common/services';
 import { FormGroup } from '@angular/forms';
 
-import { Transfer } from 'src/common/models';
+import { Transfer } from '../shared/models';
+import { TransactionService } from '../shared/services';
 
 @Component({
   selector: 'app-transfer',

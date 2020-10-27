@@ -2,9 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+
+import { SharedModule } from '../shared/shared.module';
+
 import { TransactionsModule } from '../transctions/transactions.module';
-import { CommonComponentModule } from 'src/common/common.module';
-import { TransferModule } from 'src/transfer/transfer.module';
+import { TransferModule } from '../transfer/transfer.module';
 
 @NgModule({
   declarations: [
@@ -12,7 +14,7 @@ import { TransferModule } from 'src/transfer/transfer.module';
   ],
   imports: [
     BrowserModule,
-    CommonComponentModule,
+    SharedModule,
     TransferModule,
     TransactionsModule
   ],

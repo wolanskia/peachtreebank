@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 
-import { SortOrder } from 'src/common/models';
+import { SortOrder } from '../../shared/models';
 
 @Component({
   selector: 'app-transaction-sort',
@@ -12,7 +12,7 @@ export class TransactionSortComponent {
 
   sortOrder: SortOrder = { field: 'date', direction: 'asc' };
 
-  updateSort(field): void {
+  updateSort(field: string): void {
     const direction: 'asc' | 'desc' = field === this.sortOrder.field ?
       this.sortOrder.direction === 'asc' ?
         'desc' : 'asc'
