@@ -1,7 +1,7 @@
 <app-panel>
-  <ng-container panelHeader>
+  <div panelHeader class="flex flex-center-vh">
     <span>Make a Transfer</span>
-  </ng-container>
+  </div>
   <ng-container panelContent>
     <form [formGroup]="form" class="stack">
       <label for="from">
@@ -10,7 +10,7 @@
           type="text"
           id="from"
           name="fromAccount"
-          placeholder="Free Checking(4692) - $5824.76"
+          placeholder="Free Checking(4692) - ${{accountBalance}}"
           readonly
         />
       </label>
@@ -34,7 +34,7 @@
           placeholder="$ 0.00"
         />
       </label>
-      <button type="submit" [disabled]="form.invalid" (click)="createTransfer()">SUBMIT</button>
+      <button type="submit" [disabled]="form.invalid" (click)="createTransfer(form.getRawValue())">SUBMIT</button>
     </form>
   </ng-container>
 </app-panel>
