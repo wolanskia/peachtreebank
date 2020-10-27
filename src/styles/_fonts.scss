@@ -1,0 +1,76 @@
+//Font-Family
+
+@font-face {
+  font-family: Kanit-Regular;
+  src: local("Kanit"), local("Kanit"),
+    url("/assets/fonts/Kanit-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Kanit-Light;
+  src: local("Kanit"), local("Kanit"),
+    url("/assets/fonts/Kanit-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Kanit-Medium;
+  src: local("Kanit"), local("Kanit"),
+    url("/assets/fonts/Kanit-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Kanit-Bold;
+  src: local("Kanit"), local("Kanit"),
+    url("/assets/fonts/Kanit-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Kanit-SemiBold;
+  src: local("Kanit"), local("Kanit"),
+    url("/assets/fonts/Kanit-SemiBold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Kanit-Italic;
+  src: local("Kanit"), local("Kanit"),
+    url("/assets/fonts/Kanit-Italic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Kanit-BoldItalic;
+  src: local("Kanit"), local("Kanit"),
+    url("/assets/fonts/Kanit-BoldItalic.ttf") format("truetype");
+}
+
+$base-font-family: "Kanit-Regular", "Helvetica Neue", "Arial", sans-serif;
+$base-font-regular: "Kanit-Regular";
+$base-font-light: "Kanit-Light";
+$base-font-medium: "Kanit-Medium";
+$base-font-bold: "Kanit-Bold";
+$base-font-semi-bold: "Kanit-SemiBold";
+$base-font-italic: "Kanit-Italic";
+$base-font-bold-italic: "Kanit-BoldItalic";
+
+.font-regular {
+  font-family: $base-font-regular;
+}
+
+.font-light {
+  font-family: $base-font-light;
+}
+
+.font-medium {
+  font-family: $base-font-medium;
+}
+
+.font-bold {
+  font-family: $base-font-bold;
+}
+
+.font-semi-bold {
+  font-family: $base-font-semi-bold;
+}
+
+.font-italic {
+  font-family: $base-font-italic;
+}

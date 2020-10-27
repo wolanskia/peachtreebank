@@ -1,9 +1,10 @@
 @import "styles/flex";
+@import "styles/fonts";
 @import "styles/layout";
 
 * {
   box-sizing: border-box;
-  font-family: 'Kanit', sans-serif;
+  font-family: 'Kanit-Regular', sans-serif;
   font-size: 16px;
 }
 
@@ -38,4 +39,12 @@ ul {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+strong {
+  font-family: 'Kanit-Bold', sans-serif;
+}
+
+::placeholder {
+  font-family: 'Kanit-Light', sans-serif;
 }
