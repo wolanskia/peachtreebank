@@ -10,7 +10,7 @@ import { TransactionHistoryRecord } from '../transaction-history-record/transact
 
 @Injectable()
 export class RecentTransactionsService {
-  private sortOrder: BehaviorSubject<SortOrder> = new BehaviorSubject({ field: 'date', direction: 'asc'});
+  private sortOrder: BehaviorSubject<SortOrder> = new BehaviorSubject({ field: 'date', direction: 'desc'});
   private filterKeyword: BehaviorSubject<string> = new BehaviorSubject('');
 
   recentTransactions$: Observable<Array<TransactionHistoryRecord>> = combineLatest(
