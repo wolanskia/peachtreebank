@@ -1,6 +1,6 @@
 import { Component, ViewEncapsulation, Input } from '@angular/core';
 
-import { TransactionHistoryRecord } from './transactionHistoryRecord';
+import { TransactionHistoryRecord } from '../../models/transactionHistoryRecord';
 
 @Component({
   encapsulation: ViewEncapsulation.None,

@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { TransactionHistoryRecord } from '../transaction-history-record/transactionHistoryRecord';
+import { TransactionHistoryRecord } from '../../models/transactionHistoryRecord';
 
 @Component({
   selector: 'app-transaction-history-list',

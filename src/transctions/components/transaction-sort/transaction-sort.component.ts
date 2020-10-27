@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 
-import { SortOrder } from '../../shared/models';
+import { SortOrder } from '../../../shared/models';
 
 @Component({
   selector: 'app-transaction-sort',

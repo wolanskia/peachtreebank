@@ -6,7 +6,7 @@ import { TransactionHistoryService } from '../../shared/services';
 import { TransactionHistory, SortOrder } from '../../shared/models';
 import { sortByDateField, sortByField, sortByFloatField } from '../../shared/helpers/sortRecords';
 
-import { TransactionHistoryRecord } from '../transaction-history-record/transactionHistoryRecord';
+import { TransactionHistoryRecord } from '../models/transactionHistoryRecord';
 
 @Injectable()
 export class RecentTransactionsService {

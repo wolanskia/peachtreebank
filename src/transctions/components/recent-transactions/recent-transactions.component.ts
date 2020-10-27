@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { SortOrder } from '../../shared/models';
+import { SortOrder } from '../../../shared/models';
 
-import { RecentTransactionsService } from './recentTransactions.service';
-import { TransactionHistoryRecord } from '../transaction-history-record/transactionHistoryRecord';
+import { RecentTransactionsService } from '../../services/recentTransactions.service';
+import { TransactionHistoryRecord } from '../../models/transactionHistoryRecord';
 
 @Component({
   selector: 'app-recent-transactions',
