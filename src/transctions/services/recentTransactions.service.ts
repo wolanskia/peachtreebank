@@ -48,7 +48,7 @@ export class RecentTransactionsService {
     };
   }
 
-  private sortRecords({ field, direction }: { field: string; direction: 'asc' | 'desc'; }): (a: any, b: any) => number {
+  private sortRecords({ field, direction }: SortOrder): (a: any, b: any) => number {
     switch (field) {
       case 'date':
         return sortByDateField('date', direction);
