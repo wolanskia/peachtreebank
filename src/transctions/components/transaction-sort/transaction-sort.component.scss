@@ -1,12 +1,13 @@
 label {
-  margin-right: 0.5rem;
+  margin-right: 1rem;
+  font-weight: bold;
 }
 
 button {
   background-color: white;
   border: 1px solid lightgray;
   color: #333;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1.5rem;
 
   &:not(:last-of-type) {
     border-right: 0;
