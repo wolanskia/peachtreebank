@@ -5,13 +5,8 @@ import { Observable, BehaviorSubject, combineLatest } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { TransactionHistoryRecord } from '../transaction-history-record/transactionHistoryRecord';
-import { TransactionHistory } from 'src/common/models';
+import { TransactionHistory, SortOrder } from 'src/common/models';
 import { sortByDateField, sortByField, sortByFloatField } from 'src/common/helpers/sortRecords';
-
-type SortOrder = {
-  field: string;
-  direction: 'asc' | 'desc'
-};
 
 @Injectable()
 export class RecentTransactionsService {
@@ -25,7 +20,7 @@ export class RecentTransactionsService {
     (records, filter, sortOrder) => records
       .filter((record) => record.beneficiary.toLowerCase().includes(filter.toLowerCase()))
       .sort(this.sortRecords(sortOrder))
-  )
+  );
 
   constructor(private transactionHistoryService: TransactionHistoryService) { }
 
@@ -46,7 +41,7 @@ export class RecentTransactionsService {
   private mapTransactionHistoryToRecord(history: TransactionHistory): TransactionHistoryRecord {
     return {
       date: history.dates.valueDate,
-      logoUrl: 'logourl.png',
+      logoUrl: `${history.transaction.merchant.name.toLowerCase().split(' ').join('-')}.png`,
       beneficiary: history.transaction.merchant.name,
       amount: history.transaction.amountCurrency.amount,
       transactionType: history.transaction.type
