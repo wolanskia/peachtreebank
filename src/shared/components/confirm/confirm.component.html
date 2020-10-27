@@ -1,0 +1,6 @@
+<div class="container">
+  <ng-template [ngTemplateOutlet]="preConfirm?.templateRef"></ng-template>
+  <div class="confirm-step" [class.active]="isConfirmStep">
+    <ng-template [ngTemplateOutlet]="confirmStep?.templateRef"></ng-template>
+  </div>
+</div>
