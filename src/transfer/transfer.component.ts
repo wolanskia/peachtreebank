@@ -15,10 +15,15 @@ import { transferForm } from './transfer.form';
 export class TransferComponent {
   form: FormGroup = transferForm;
   accountBalance = 5824.76;
+  overdrawLimit = -500;
 
   @ViewChild(ConfirmComponent, { static: false }) confirmComponent: ConfirmComponent;
 
   constructor(private transactionService: TransactionService) {}
+
+  goBack(): void {
+    this.confirmComponent.reset();
+  }
 
   confirmTransfer(): void {
     this.confirmComponent.confirm();

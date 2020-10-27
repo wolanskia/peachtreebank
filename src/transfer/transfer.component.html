@@ -37,22 +37,32 @@
         <button type="submit" [disabled]="form.invalid" (click)="confirmTransfer()">SUBMIT</button>
       </form>
     <div class="stack confirm-transfer" *confirmStep>
-      <p class="center">Preview Transfer</p>
-      <ul>
-        <li class="flex flex-column">
-          <strong>From</strong>
-          <span> Free Checking(4692): {{accountBalance | currency:'USD':'symbol':'1.2-2' }}</span>
-        </li>
-        <li class="flex flex-column">
-          <strong>To</strong>
-          <span>{{form.value.toAccount}}</span>
-        </li>
-        <li class="flex flex-column">
-          <strong>Amount</strong>
-          <span>{{form.value.amount | currency:'USD':'symbol':'1.2-2'}}</span>
-        </li>
-      </ul>
-      <button (click)="createTransfer(form.getRawValue())">Make Transfer</button>
+      <ng-container [ngSwitch]="overdrawLimit > (accountBalance - form.value.amount)">
+        <ng-container *ngSwitchCase="true">
+          <div class="stack">
+            <span>This transfer will overdraw the account by more than $500.00</span>
+            <button type="button" (click)="goBack()">Return</button>
+          </div>
+        </ng-container>
+        <ng-container *ngSwitchDefault>
+          <p class="center">Preview Transfer</p>
+          <ul>
+            <li class="flex flex-column">
+              <strong>From</strong>
+              <span> Free Checking(4692): {{accountBalance | currency:'USD':'symbol':'1.2-2' }}</span>
+            </li>
+            <li class="flex flex-column">
+              <strong>To</strong>
+              <span>{{form.value.toAccount}}</span>
+            </li>
+            <li class="flex flex-column">
+              <strong>Amount</strong>
+              <span>{{form.value.amount | currency:'USD':'symbol':'1.2-2'}}</span>
+            </li>
+          </ul>
+          <button (click)="createTransfer(form.getRawValue())">Make Transfer</button>
+        </ng-container>
+      </ng-container>
     </div>
   </app-confirm>
 </app-panel>
