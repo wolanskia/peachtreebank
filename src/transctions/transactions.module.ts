@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { TransactionHistoryRecordComponent } from './transaction-history-record/transaction-history-record.component';
 import { TransactionHistoryListComponent } from './transaction-history-list/transaction-history-list.component';
+import { TransactionSortComponent } from './transaction-sort/transaction-sort.component';
 import { RecentTransactionsComponent } from './recent-transactions/recent-transactions.component';
 
 import { RecentTransactionsService } from './recent-transactions/recentTransactions.service';
@@ -14,12 +15,14 @@ import { CommonComponentModule } from 'src/common/common.module';
   declarations: [
     RecentTransactionsComponent,
     TransactionHistoryListComponent,
-    TransactionHistoryRecordComponent
+    TransactionHistoryRecordComponent,
+    TransactionSortComponent,
   ],
   exports: [
     RecentTransactionsComponent,
     TransactionHistoryListComponent,
-    TransactionHistoryRecordComponent
+    TransactionHistoryRecordComponent,
+    TransactionSortComponent,
   ],
   providers: [RecentTransactionsService]
 })
