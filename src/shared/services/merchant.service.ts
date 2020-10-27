@@ -8,10 +8,19 @@ import { map } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class MerchantService {
-  private merchants: BehaviorSubject<Array<Merchant>> = new BehaviorSubject(data.map(({ merchant }) => merchant));
+  private merchants: BehaviorSubject<Array<Merchant>> = new BehaviorSubject(
+    data.map(({ merchant }) => this.getMerchantWithLogoUrl(merchant))
+  );
 
   search(merchantName: string): Observable<Merchant> {
     return this.findMerchant(merchantName);
+  }
+
+  getMerchantWithLogoUrl(merchant: Partial<Merchant>): Merchant {
+    return {
+      ...merchant,
+      logoUrl: `${merchant.name.toLowerCase().split(' ').join('-')}.png`
+    } as Merchant;
   }
 
   private findMerchant(merchantName: string): Observable<Merchant> {
@@ -21,7 +30,8 @@ export class MerchantService {
 
         return merchant || {
           name: merchantName,
-          accountNumber: '0000000000000'
+          accountNumber: '0000000000000',
+          logoUrl: 'backbase.png'
         };
       })
     );

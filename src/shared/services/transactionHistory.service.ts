@@ -6,11 +6,15 @@ import { data } from '../../data/transactions.json';
 import getRandomCategoryCode from '../helpers/getRandomCategoryCode';
 import { TransactionHistory, Transaction } from '../models';
 
+import { MerchantService } from './merchant.service';
+
 @Injectable({ providedIn: 'root' })
 export class TransactionHistoryService {
+  constructor(private merchantService: MerchantService) {}
+
   private transactionHistory: BehaviorSubject<Array<TransactionHistory>> = new BehaviorSubject(
     data.map(({ merchant, transaction, ...rest }) => ({
-      transaction: { ...transaction, merchant },
+      transaction: { ...transaction, merchant: this.merchantService.getMerchantWithLogoUrl(merchant) },
       ...rest
     })) as Array<TransactionHistory>
   );

@@ -41,7 +41,7 @@ export class RecentTransactionsService {
   private mapTransactionHistoryToRecord(history: TransactionHistory): TransactionHistoryRecord {
     return {
       date: history.dates.valueDate,
-      logoUrl: `${history.transaction.merchant.name.toLowerCase().split(' ').join('-')}.png`,
+      logoUrl: history.transaction.merchant.logoUrl,
       beneficiary: history.transaction.merchant.name,
       amount: history.transaction.amountCurrency.amount,
       transactionType: history.transaction.type
