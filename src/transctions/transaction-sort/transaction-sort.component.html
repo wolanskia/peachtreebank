@@ -6,7 +6,7 @@
     'desc': sortOrder.direction === 'desc'
   }"
   class="filter-button"
-  (click)="updateSort('date', 'asc')">
+  (click)="updateSort('date')">
     DATE
 </button>
 <button
@@ -16,7 +16,7 @@
     'desc': sortOrder.direction === 'desc'
   }"
   class="filter-button"
-  (click)="updateSort('beneficiary', 'asc')">
+  (click)="updateSort('beneficiary')">
   BENIFICIARY
 </button>
 <button
@@ -26,6 +26,6 @@
     'desc': sortOrder.direction === 'desc'
   }"
   class="filter-button"
-  (click)="updateSort('amount', 'asc')">
+  (click)="updateSort('amount')">
   AMOUNT
 </button>
