@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { transferForm } from './transfer.form';
+import { TransactionService } from 'src/common/services';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-transfer',
@@ -7,9 +9,11 @@ import { transferForm } from './transfer.form';
   templateUrl: './transfer.component.html'
 })
 export class TransferComponent {
-  form = transferForm;
+  form: FormGroup = transferForm;
 
-  createTransfer(value) {
-    console.log(this.form);
+  constructor(private transactionService: TransactionService) {}
+
+  createTransfer() {
+    this.transactionService.createTransaction(this.form.getRawValue());
   }
 }
