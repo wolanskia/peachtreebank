@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { Transfer, Transaction } from '../models';
 import { Observable } from 'rxjs';
-import { tap, map } from 'rxjs/operators';
+import { take, map } from 'rxjs/operators';
 
 import { TransactionHistoryService } from './transactionHistory.service';
 import { MerchantService } from './merchant.service';
@@ -14,10 +14,10 @@ export class TransactionService {
     private transactionHistoryService: TransactionHistoryService
   ) { }
 
-  createTransaction(transfer: Transfer): Observable<Transaction> {
-    return this.mapTransferToTransaction(transfer).pipe(
-      tap((transaction: Transaction) => this.transactionHistoryService.createTransactionHistory(transaction))
-    );
+  createTransaction(transfer: Transfer): void {
+    this.mapTransferToTransaction(transfer)
+      .pipe(take(1))
+      .subscribe((transaction: Transaction) => this.transactionHistoryService.createTransactionHistory(transaction))
   }
 
   private mapTransferToTransaction(transfer: Transfer): Observable<Transaction> {
